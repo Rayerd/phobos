@@ -218,7 +218,7 @@ class FileException : Exception
 
     /++
         Constructor which takes the error number ($(LUCKY GetLastError)
-        in Windows, $(D_PARAM getErrno) in Posix).
+        in Windows, $(D_PARAM getErrno()) in Posix).
 
         Params:
             name = Name of file for which the error occurred.
@@ -227,7 +227,7 @@ class FileException : Exception
             line = The line where the error occurred.
      +/
     version(Windows) this(in char[] name,
-                          uint errno = GetLastError,
+                          uint errno = GetLastError(),
                           string file = __FILE__,
                           size_t line = __LINE__)
     {
@@ -237,7 +237,7 @@ class FileException : Exception
 
     /++
         Constructor which takes the error number ($(LUCKY GetLastError)
-        in Windows, $(D_PARAM getErrno) in Posix).
+        in Windows, $(D_PARAM getErrno()) in Posix).
 
         Params:
             name = Name of file for which the error occurred.
@@ -246,7 +246,7 @@ class FileException : Exception
             line = The line where the error occurred.
      +/
     version(Posix) this(in char[] name,
-                        uint errno = .getErrno,
+                        uint errno = .getErrno(),
                         string file = __FILE__,
                         size_t line = __LINE__)
     {

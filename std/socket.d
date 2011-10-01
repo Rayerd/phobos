@@ -2297,7 +2297,7 @@ public:
 
 
     /// Get underlying socket handle.
-    socket_t handle() const
+    @property socket_t handle() const
     {
         return sock;
     }
