@@ -67,7 +67,7 @@ DOC=..\..\html\d\phobos
 
 ## Location of druntime tree
 
-DRUNTIME=..\druntime
+DRUNTIME=c:\d\dmd2\windows
 DRUNTIMELIB=$(DRUNTIME)\lib\druntime.lib
 
 .c.obj:
