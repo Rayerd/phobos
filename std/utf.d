@@ -687,12 +687,12 @@ unittest
         "\xFC\x80\x80\x80\x80\x8A",
     ];
 
-    for (int j = 0; j < s4.length; j++)
+    foreach (string s; s4)
     {
         try
         {
             i = 0;
-            c = decode(s4[j], i);
+            c = decode(s, i);
             assert(0);
         }
         catch (UTFException u)
