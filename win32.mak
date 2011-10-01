@@ -41,7 +41,7 @@ DFLAGS=-O -release -nofloat -w -d
 
 ## Flags for compiling unittests
 
-UDFLAGS=-O -nofloat -w -d
+UDFLAGS=-O -nofloat -w -d -debug
 
 ## C compiler
 
@@ -350,6 +350,22 @@ phobos.lib : $(OBJS) $(SRCS) \
 	etc\c\zlib\zlib.lib $(DRUNTIMELIB) win32.mak
 	$(DMD) -lib -ofphobos.lib -Xfphobos.json $(DFLAGS) $(SRCS) $(OBJS) \
 		etc\c\zlib\zlib.lib $(DRUNTIMELIB)
+
+unittest11 : $(SRCS) phobos.lib
+	$(DMD) $(UDFLAGS) -L/co -unittest unittest.d $(SRCS_11) -ofunittest11 etc\c\zlib\zlib.lib $(DRUNTIMELIB)
+	unittest11
+
+unittest12 : $(SRCS) phobos.lib
+	$(DMD) $(UDFLAGS) -L/co -unittest unittest.d $(SRCS_12) -ofunittest12 etc\c\zlib\zlib.lib $(DRUNTIMELIB)
+	unittest12
+
+unittest2 : $(SRCS) phobos.lib
+	$(DMD) $(UDFLAGS) -L/co -unittest unittest.d $(SRCS_2) -ofunittest2 etc\c\zlib\zlib.lib $(DRUNTIMELIB)
+	unittest2
+
+unittest3 : $(SRCS) phobos.lib
+	$(DMD) $(UDFLAGS) -L/co -unittest unittest.d $(SRCS_3) -ofunittest3 etc\c\zlib\zlib.lib $(DRUNTIMELIB)
+	unittest3
 
 unittest : $(SRCS) phobos.lib
 	$(DMD) $(UDFLAGS) -L/co -c -unittest -ofunittest11.obj $(SRCS_11)
